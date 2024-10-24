@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRC = ft_printf.c ft_list1.c ft_list2.c \
+SRC = ft_printf.c ft_list1.c ft_list2.c  
 
 OBJ = $(SRC:.c=.o)
 

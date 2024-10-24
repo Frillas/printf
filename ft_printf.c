@@ -11,8 +11,10 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "./libft/libft.h"
+#include <stdio.h>
 
-int	ft_printf(char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		i;
@@ -20,10 +22,11 @@ int	ft_printf(char *str, ...)
 	int		tot;
 
 	i = 0;
-	count = 0;
+	tot = 0;
 	va_start(args, str);
 	while (str[i])
 	{
+		count = 0;
 		if (str[i] == '%' && str[i + 1] == 'c')
 			count = ft_char(args);
 		else if (str[i] == '%' && str[i + 1] == 's')
@@ -34,7 +37,7 @@ int	ft_printf(char *str, ...)
 			count = ft_int(args);
 		else if (str[i] == '%' && str[i + 1] == 'u')
 			count = ft_unsigned(args);
-		else if (str[i] == '%' && str [i + 1] == 'x')
+		else if (str[i] == '%' && str[i + 1] == 'x')
 			count = ft_lowhex(args);
 		else if (str[i] == '%' && str[i + 1] == 'X')
 			count = ft_upperhex(args);
@@ -44,15 +47,23 @@ int	ft_printf(char *str, ...)
 			;
 		else
 			write(1, &str[i], sizeof(char));
-		tot = count + tot;
+		if (count != 0)
+			tot = count + tot;
+		else if (count == 0)
+			tot++;
 		i++;
 	}
 	va_end (args);
-	return (i + tot);
+	return (tot - 1);
 }
 
-int	main(void)
+/*int	main(void)
 {
-	int nombre = 10;
-	ft_printf("%d %p\n",10, &nombre);
-}
+	unsigned int nbr = -1234567;
+	int res;
+	res = ft_printf("%u\n", nbr);
+	printf("%d\n",res);
+	
+	res = printf("%u\n", nbr);
+	printf("%d\n",res);
+}*/

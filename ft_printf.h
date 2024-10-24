@@ -13,11 +13,11 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "./libft/libft.h"
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
 
+int		ft_printf(const char *str, ...);
 int		ft_char(va_list args);
 int		ft_ptrchar(va_list args);
 int		ft_adr(va_list args);

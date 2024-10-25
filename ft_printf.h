@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aroullea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aroullea <aroullea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:29:15 by aroullea          #+#    #+#             */
-/*   Updated: 2024/10/24 16:28:08 by aroullea         ###   ########.fr       */
+/*   Updated: 2024/10/25 11:29:34 by aroullea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_unsigned(va_list args);
 int		ft_lowhex(va_list args);
 int		ft_upperhex(va_list args);
 size_t	ft_size(size_t n);
-void	ft_puthex(unsigned long int n, int low);
-void	ft_unsigned_nbr(unsigned int nbr);
+int		ft_puthex(unsigned long int n, int low);
+int		ft_unsigned_nbr(unsigned int nbr);
 
 #endif

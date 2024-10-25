@@ -28,8 +28,13 @@ int	ft_ptrchar(va_list args)
 	char	*dst;
 
 	dst = va_arg(args, char *);
-	write(1, NULL, 1);
-	ft_putstr_fd(dst, 1);
+	if(!dst)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	else
+		ft_putstr_fd(dst, 1);
 	return (ft_strlen(dst));
 }
 
@@ -38,8 +43,16 @@ int	ft_adr(va_list args)
 	unsigned long int	res;
 
 	res = (unsigned long int) va_arg(args, void *);
-	write(1, "0x", 2);
-	ft_puthex(res, 1);
+	if (!res)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	else
+	{
+		write(1, "0x", 2);
+		ft_puthex(res, 1);
+	}
 	return (ft_size(res));
 }
 

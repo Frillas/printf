@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "./libft/libft.h"
 
 int	ft_lowhex(va_list args)
 {

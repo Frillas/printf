@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "./libft/libft.h"
-#include <stdio.h>
 
 int	ft_printf(const char *str, ...)
 {
@@ -57,13 +55,20 @@ int	ft_printf(const char *str, ...)
 	return (tot - 1);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	unsigned int nbr = -1234567;
-	int res;
-	res = ft_printf("%u\n", nbr);
+	int	res;
+	char c = 'A';
+	char name[10]={"Bonjour !"};
+	int nb = 10;
+	int	nb2 = 20;
+	int hex1 = 75315985;
+	int hex2 = 75315985;
+
+	res = ft_printf("%u %c %p %s %d %i %x %X\n", nbr, c, &nbr, name, nb, nb2, hex1, hex2);
 	printf("%d\n",res);
-	
-	res = printf("%u\n", nbr);
+
+    res = printf("%u %c %p %s %d %i %x %X\n", nbr, c, &nbr, name, nb, nb2, hex1, hex2);
 	printf("%d\n",res);
-}*/
+}

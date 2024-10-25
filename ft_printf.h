@@ -16,6 +16,8 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft/libft.h"
+# include <stdio.h>
 
 int		ft_printf(const char *str, ...);
 int		ft_char(va_list args);

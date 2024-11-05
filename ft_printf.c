@@ -6,7 +6,7 @@
 /*   By: aroullea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:07:49 by aroullea          #+#    #+#             */
-/*   Updated: 2024/10/25 16:02:33 by aroullea         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:04:31 by aroullea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ int	ft_printf(const char *str, ...)
 
 	i = 0;
 	tot = 0;
+	if (str == NULL)
+		return (-1);
 	va_start(args, str);
 	while ((str[i]) && (i < ft_strlen(str)))
 	{

@@ -18,6 +18,9 @@
 # include "./libft/libft.h"
 
 int		ft_printf(const char *str, ...);
+int		ft_check_tot(const char *str, size_t *j, int tot);
+int		ft_check(const char *str, int i);
+int		ft_check_count(va_list args, const char *str, size_t i);
 int		ft_char(va_list args);
 int		ft_ptrchar(va_list args);
 int		ft_adr(va_list args);

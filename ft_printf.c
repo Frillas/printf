@@ -34,7 +34,7 @@ int	ft_check_count(va_list args, const char *str, size_t i)
 	return (count);
 }
 
-int	ft_add_2(const char *str, int i)
+int	ft_check(const char *str, int i)
 {
 	int	k;
 
@@ -92,7 +92,7 @@ int	ft_printf(const char *str, ...)
 	while ((str[i]) && (i < ft_strlen(str)))
 	{
 		count = ft_check_count(args, str, i);
-		check = ft_add_2(str, i);
+		check = ft_check(str, i);
 		if (i < ft_strlen(str) && (!check))
 			tot = ft_check_tot(str, &i, tot);
 		tot = count + tot;

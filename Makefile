@@ -1,7 +1,7 @@
 NAME = libftprintf.a
 
 RM = @rm -f
-CC = clang
+CC = cc
 
 DIR_LIBFT= libft
 

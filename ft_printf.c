@@ -6,7 +6,7 @@
 /*   By: aroullea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:07:49 by aroullea          #+#    #+#             */
-/*   Updated: 2024/11/05 17:04:31 by aroullea         ###   ########.fr       */
+/*   Updated: 2024/10/25 16:02:33 by aroullea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,28 @@ int	ft_check_count(va_list args, const char *str, size_t i)
 	return (count);
 }
 
-void	ft_add_2(const char *str, size_t *j)
+int	ft_add_2(const char *str, int i)
 {
-	int	i;
+	int	k;
 
-	i = (*j);
+	k = 0;
 	if (str[i] == '%' && str[i + 1] == 'c')
-		i += 2;
+		k = 1;
 	else if (str[i] == '%' && str[i + 1] == 's')
-		i += 2;
+		k = 1;
 	else if (str[i] == '%' && str[i + 1] == 'p')
-		i += 2;
-	else if (str[i] == '%' && ((str[i + 1] == 'd') || (str[i + 1] == 'i')))
-		i += 2;
+		k = 1;
+	else if (str[i] == '%' && str[i + 1] == 'd')
+		k = 1;
+	else if (str[i] == '%' && str[i + 1] == 'i')
+		k = 1;
 	else if (str[i] == '%' && str[i + 1] == 'u')
-		i += 2;
+		k = 1;
 	else if (str[i] == '%' && str[i + 1] == 'x')
-		i += 2;
+		k = 1;
 	else if (str[i] == '%' && str[i + 1] == 'X')
-		i += 2;
-	(*j) = i;
+		k = 1;
+	return (k);
 }
 
 int	ft_check_tot(const char *str, size_t *j, int tot)
@@ -82,20 +84,23 @@ int	ft_printf(const char *str, ...)
 	size_t		i;
 	int			count;
 	int			tot;
+	int			check;
 
 	i = 0;
 	tot = 0;
-	if (str == NULL)
-		return (-1);
 	va_start(args, str);
 	while ((str[i]) && (i < ft_strlen(str)))
 	{
 		count = ft_check_count(args, str, i);
-		ft_add_2(str, &i);
-		if (i < ft_strlen(str))
+		check = ft_add_2(str, i);
+		if (i < ft_strlen(str) && (!check))
 			tot = ft_check_tot(str, &i, tot);
 		tot = count + tot;
-		i++;
+		if (check)
+			i = i + 2;
+		else
+			i++;
+		check = 0;
 	}
 	va_end(args);
 	return (tot);
